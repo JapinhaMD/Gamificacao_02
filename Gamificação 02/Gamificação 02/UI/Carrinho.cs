@@ -9,7 +9,7 @@ namespace Gamificação_02
 {
     public class CarrinhoUI
     {
-         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+          public CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 
         public void MenuCarrinho()
         {
@@ -27,6 +27,7 @@ namespace Gamificação_02
                 switch (opcao)
                 {
                     case "1":
+                       
                         AdicionarItem(carrinho);
                         break;
                     case "2":
@@ -53,6 +54,10 @@ namespace Gamificação_02
         private void AdicionarItem(CarrinhoDeCompras carrinho)
         {
             Console.Clear();
+            foreach (var produtos in Program.produtos)
+            {
+                Console.WriteLine($"ID: {produtos.ProdutoID} | Nome: {produtos.Nome} | Preço: {produtos.Preco} | Categoria: {produtos.CategoriaModel.Nome}");
+            }
             Console.WriteLine("Digite o ID do produto que deseja adicionar ao carrinho: ");
 
             int idProduto = int.Parse(Console.ReadLine());

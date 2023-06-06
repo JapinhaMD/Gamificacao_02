@@ -13,13 +13,9 @@ public class Program
     public static List<CategoriaModel> categorias = new List<CategoriaModel>();
     static void Main(string[] args)
     {
-
-
         
-        Promocao promocoes = new Promocao();
+       
         CarrinhoUI carrinhoUI = new CarrinhoUI();
-
-
 
         bool continuar = true;
         do
@@ -30,6 +26,7 @@ public class Program
             Console.WriteLine("1 - Gerenciar Produtos");
             Console.WriteLine("2 - Gerenciar Categorias");
             Console.WriteLine("3 - Carrinho de Compras");
+            Console.WriteLine("4 - Promoçoes");
             Console.WriteLine("0 - Sair");
 
 
@@ -55,14 +52,20 @@ public class Program
                     carrinhoUI.MenuCarrinho();
                     break;
 
+                case "4":
+                    PromocaoUI.GerenciarPromocoes(carrinhoUI);
+                    break;
+
                 case "0":
                     continuar = false;
                     break;
             }
         } while (continuar);
+        
+            
 
-        Console.WriteLine("Sistema Finalizado!");
-       
+            double total = carrinhoUI.carrinho.CalcularValorTotal();
+            Console.WriteLine($"Valor Total da Compra: {total}");
     }
 }
 

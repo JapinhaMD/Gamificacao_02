@@ -119,6 +119,16 @@ namespace Gamificacao_02
                 Program.produtos.Add(produto);
                 Console.WriteLine("Produto cadastrado com sucesso!");
             }
+
+            Console.WriteLine("Informe a Categoria da Promocao: ");
+            Console.WriteLine("0 - Camiseta");
+            Console.WriteLine("1 - Calca");
+            Console.WriteLine("2 - Sapato");
+            Console.WriteLine("3 - Bolsa");
+            Console.WriteLine("4 - Acessorio");
+            int categ = int.Parse(Console.ReadLine());
+            CategoriaProduto categoria = (CategoriaProduto)categ;
+
         }
 
         private void AlterarProduto()

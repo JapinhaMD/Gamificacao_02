@@ -11,7 +11,7 @@ namespace Gamificacao_02
     public class CarrinhoDeCompras
     {
         private List<ProdutoModel> produtos = new List<ProdutoModel>();
-        private List<Promocao> promocoes = new List<Promocao>();
+       
 
         
         public void AdicionarProduto(ProdutoModel produto)
@@ -22,7 +22,7 @@ namespace Gamificacao_02
         
         public void AplicarPromocao(Promocao promocao)
         {
-            promocoes.Add(promocao);
+            Promocao.promocoes.Add(promocao);
         }
 
         
@@ -30,16 +30,18 @@ namespace Gamificacao_02
         {
             double valorTotal = 0.0;
 
+
             foreach (ProdutoModel produto in produtos)
             {
-                
+
                 double valorDesconto = 0.0;
-                foreach (Promocao promocao in promocoes)
+                foreach (Promocao promocao in Promocao.promocoes)
                 {
-                     if (promocao.Categoria == produto.Categoria)
-                     {
-                         valorDesconto += promocao.CalcularValorDesconto(produto.Preco);
-                     }
+                    if (produto.Categoria== promocao.CategoriaP)
+                    {
+                        valorDesconto += promocao.CalcularValorDesconto(produto.Preco);
+                        Console.WriteLine($" Valor Desconto: {valorDesconto}");
+                    }
                 }
 
                 valorTotal += produto.Preco - valorDesconto;
