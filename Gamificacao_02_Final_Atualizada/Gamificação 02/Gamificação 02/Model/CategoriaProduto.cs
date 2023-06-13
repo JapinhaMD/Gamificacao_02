@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Gamificacao_02
+{
+    
+    public class CategoriaModel
+    {
+        public static List<CategoriaModel> categorias = new List<CategoriaModel>();
+        public long? CategoriaID { get; set; }
+        public Guid CategoriaIDGUID { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
+
+    }
+}
